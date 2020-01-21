@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="foo"></div>
+    <script>
+      $.getJSON("file.json", function(json) {
+        array = json.names;
+        var list = document.createElement("ul");
+
+        for (var i = 0; i < array.length; i++) {
+          var item = document.createElement("li");
+          item.appendChild(
+            document.createTextNode(
+              "Thanks for coming to my talk, " + array[i] + "!"
+            )
+          );
+          item.className = "list-group-item";
+          list.appendChild(item);
+          list.className = "list-group text-center";
+        }
+
+        document.getElementById("foo").appendChild(list);
+      });
+    </script>
+  </body>
+</html>
